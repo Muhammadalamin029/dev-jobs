@@ -21,13 +21,28 @@ const useGetData = () => {
       const fullTimeJobs = filteredJobs.filter(
         (job) => job.contract === "Full Time"
       );
+      const TitleJobs = filteredJobs.filter(
+        (job) => job.position === searchValue?.searchInput
+      );
+      const LocationJobs = filteredJobs.filter(
+        (job) => job.location === searchValue?.searchLocation
+      );
 
       if (searchValue?.fullTime === true) {
-        console.log(searchValue);
         job = fullTimeJobs;
-      } else {
-        job = filteredJobs;
+        console.log(job);
+        setJobs(job);
+      } else if (searchValue?.searchInput != "") {
+        job = TitleJobs;
+        console.log(job);
+        setJobs(job);
+      } else if (searchValue?.searchLocation != "") {
+        job = LocationJobs;
+        console.log(job);
+        setJobs(job);
       }
+      job = filteredJobs;
+
       setJobs(job);
     } catch (error) {
       console.error(error);
