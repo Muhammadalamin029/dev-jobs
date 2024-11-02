@@ -13,11 +13,11 @@ const useFormData = () => {
     defaultValues: {
       company: "",
       position: "",
-      postedAt: "",
       contract: "",
       location: "",
       website: "",
       apply: "",
+      postedAt: "",
       description: "",
       requirements: {
         content: "",

@@ -25,13 +25,20 @@ const useGetData = () => {
         .filter((job) =>
           searchValue?.type ? job.contract === "Full Time" : job
         )
-        .filter((title) =>
+        .filter((titl) =>
           searchValue?.input === ""
-            ? title
-            : title.position.toLowerCase() === searchValue?.input.toLowerCase()
-        ).filter(place => searchValue?.location === ""
+            ? titl
+            : titl.position
+                .toLowerCase()
+                .includes(searchValue?.input.toLowerCase())
+        )
+        .filter((place) =>
+          searchValue?.location === ""
             ? place
-            : place.location.toLowerCase() === searchValue?.location.toLowerCase())
+            : place.location
+                .toLowerCase()
+                .includes(searchValue?.location.toLowerCase())
+        );
 
       if (!fullTimeJobs) {
         toast.error("not found");

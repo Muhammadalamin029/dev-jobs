@@ -14,6 +14,10 @@ body {
   font-family: "Kumbh Sans", sans-serif;
 }
 
+body.dark {
+  background: #121712;
+}
+
 h1 {
   font-size: 28px;
 }
@@ -85,6 +89,10 @@ nav {
   z-index: 2 !important;
 }
 
+.search-bar-dark {
+  background: #19202d;
+}
+
 .search {
   padding: 28px;
   height: 100%;
@@ -113,6 +121,10 @@ nav {
   font-size: 16px;
 }
 
+input.dark {
+  background: #19202d;
+}
+
 .search-input input::placeholder {
   font-weight: 400;
 }
@@ -137,6 +149,10 @@ input[type="checkbox"] {
   font-weight: 700;
   width: 130px;
   color: #19202d;
+}
+
+.check-label-dark {
+  color: #ffffff;
 }
 
 .check-label.two {
@@ -207,6 +223,10 @@ input[type="checkbox"] {
   border-radius: 6px;
 }
 
+.job-details-dark {
+  background: #19202d;
+}
+
 .job-role {
   text-decoration: none;
   margin: 0;
@@ -215,6 +235,10 @@ input[type="checkbox"] {
   font-weight: 700;
   width: 100%;
   color: #19202d;
+}
+
+.job-role-dark {
+  color: #ffffff;
 }
 
 .job-role:hover {
