@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import SearchBar from "../components/SearchBar";
 import JobListings from "../components/homeComponents/JobListings";
 import ReadMoreBtn from "../components/homeComponents/ReadMoreBtn";
+import { JobContext } from "../context/JobContextProvider";
+import FilterModal from "../components/FilterModal";
 
 const Home = () => {
+  const { filter } = useContext(JobContext);
   return (
     <section>
-      <div className="section">
-        <SearchBar />
-      </div>
+      {filter && <FilterModal />}
       <JobListings />
       <ReadMoreBtn />
     </section>

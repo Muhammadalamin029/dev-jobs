@@ -1,15 +1,18 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { db } from "../config/firebase";
+import { JobContext } from "../context/JobContextProvider";
+import toast from "react-hot-toast";
 
 const useGetData = () => {
   const [jobs, setJobs] = useState(null);
-  const [loading, setLoading] = useState(false);
-  let job = [];
+  const [loading, setLoading] = useState(null);
 
-  const getJobs = async (searchValue) => {
-    const docRef = collection(db, "jobs");
+  const { searchValue } = useContext(JobContext);
+
+  const getJobs = async () => {
     setLoading(true);
+    const docRef = collection(db, "jobs");
 
     try {
       const data = await getDocs(docRef);
@@ -18,41 +21,29 @@ const useGetData = () => {
         id: doc.id,
       }));
 
-      const fullTimeJobs = filteredJobs.filter(
-        (job) => job.contract === "Full Time"
-      );
-      const TitleJobs = filteredJobs.filter(
-        (job) => job.position === searchValue?.searchInput
-      );
-      const LocationJobs = filteredJobs.filter(
-        (job) => job.location === searchValue?.searchLocation
-      );
+      const fullTimeJobs = filteredJobs
+        .filter((job) =>
+          searchValue?.type ? job.contract === "Full Time" : job
+        )
+        .filter((title) =>
+          searchValue?.input === ""
+            ? title
+            : title.position.toLowerCase() === searchValue?.input.toLowerCase()
+        ).filter(place => searchValue?.location === ""
+            ? place
+            : place.location.toLowerCase() === searchValue?.location.toLowerCase())
 
-      if (searchValue?.fullTime === true) {
-        job = fullTimeJobs;
-        console.log(job);
-        setJobs(job);
-      } else if (searchValue?.searchInput != "") {
-        job = TitleJobs;
-        console.log(job);
-        setJobs(job);
-      } else if (searchValue?.searchLocation != "") {
-        job = LocationJobs;
-        console.log(job);
-        setJobs(job);
+      if (!fullTimeJobs) {
+        toast.error("not found");
       }
-      job = filteredJobs;
 
-      setJobs(job);
+      setJobs(fullTimeJobs);
     } catch (error) {
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
-  useEffect(() => {
-    getJobs();
-  }, []);
 
   return [getJobs, jobs, loading];
 };

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import useGetData from "./useGetData";
+import { JobContext } from "../context/JobContextProvider";
 
 const useSearchJobs = () => {
   const [searchInput, setSearchInput] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
-  const [fullTime, setFullTime] = useState(true);
+  const [fullTime, setFullTime] = useState(false);
 
-  const searchValue = {
-    searchInput,
-    searchLocation,
-    fullTime,
+  const { setSearch, searchData, setSearchValue } = useContext(JobContext);
+
+  const searchDetails = {
+    input: searchInput,
+    location: searchLocation,
+    type: fullTime,
   };
-
-  const [getJobs] = useGetData();
 
   const handleSearchInput = (event) => {
     setSearchInput(event.target.value);
@@ -27,12 +27,9 @@ const useSearchJobs = () => {
   };
 
   const search = () => {
-    if (searchValue.searchInput === "" && searchValue.searchLocation === "") {
-      toast.error("Enter a search filter");
-      return;
-    }
+    setSearchValue(searchDetails);
 
-    return getJobs(searchValue);
+    setSearch(!searchData);
   };
 
   return [
