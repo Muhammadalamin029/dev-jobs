@@ -272,6 +272,15 @@ input[type="checkbox"] {
   align-items: center;
 }
 
+.nav-link {
+  font-weight: 700 !important;
+  color: #939bf4;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
 /* Details Page */
 
 .details {

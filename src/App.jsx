@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import AddJob from "./pages/AddJob";
+import Hero from "./components/landingComponents/Hero";
+import Landing from "./pages/Landing";
 
 function App() {
   const router = createBrowserRouter(
@@ -22,6 +24,7 @@ function App() {
           <Route path="add-job" element={<AddJob />} />
           <Route path=":id" element={<Description />} />
         </Route>
+        <Route path="/welcome" element={<Landing />} />
       </>
     )
   );

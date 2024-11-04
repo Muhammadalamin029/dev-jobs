@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { db } from "../config/firebase";
 import { JobContext } from "../context/JobContextProvider";
 import toast from "react-hot-toast";
@@ -29,6 +29,9 @@ const useGetData = () => {
           searchValue?.input === ""
             ? titl
             : titl.position
+                .toLowerCase()
+                .includes(searchValue?.input.toLowerCase()) ||
+              titl.company
                 .toLowerCase()
                 .includes(searchValue?.input.toLowerCase())
         )

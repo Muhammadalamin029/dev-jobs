@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import toogle from "/assets/icons/toogle.svg";
 import sun from "/assets/icons/sun.svg";
 import moon from "/assets/icons/moon.svg";
@@ -15,6 +15,19 @@ const Navbar = () => {
         <Link className="navbar-brand" to="/">
           devjobs
         </Link>
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <NavLink className="nav-link" to="/">
+              Home
+            </NavLink>
+          </li>
+          <li class="nav-item">
+            <NavLink className="nav-link" to="/add-job">
+              Add Jobs
+            </NavLink>
+          </li>
+          <li class="nav-item"></li>
+        </ul>
         <ul className="navbar-nav nav-toggle">
           <div>
             <img src={sun} alt="" className="nav-icon" />

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import data from "../components/data";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/descriptionComponents/Footer";
 import useGetDes from "../hooks/useGetDes";
