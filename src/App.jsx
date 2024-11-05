@@ -10,26 +10,33 @@ import Home from "./pages/Home";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import AddJob from "./pages/AddJob";
-import Hero from "./components/landingComponents/Hero";
 import Landing from "./pages/Landing";
+import AuthContextProvider from "./context/AuthContextProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromChildren(
       <>
-        <Route path="/" element={<Layout />}>
-          <Route path="" element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signUp" element={<SignUp />} />
-          <Route path="add-job" element={<AddJob />} />
-          <Route path=":id" element={<Description />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Layout />}>
+            <Route path="" element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signUp" element={<SignUp />} />
+            <Route path="add-job" element={<AddJob />} />
+            <Route path=":id" element={<Description />} />
+          </Route>
         </Route>
         <Route path="/welcome" element={<Landing />} />
       </>
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
+  );
 }
 
 export default App;

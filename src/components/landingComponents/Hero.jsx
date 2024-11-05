@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 function Hero() {
   return (
@@ -17,8 +18,30 @@ function Hero() {
           <button className="landing-btn">Get Started</button>
         </div>
       </div>
+      <button onClick={topScroll} className="myBtn">
+        <FaArrowUp />
+      </button>
     </header>
   );
 }
 
 export default Hero;
+
+let myBotton = document.querySelector(".myBtn");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTo > 20 || document.documentElement.scrollTop > 20) {
+    myBotton.style.display = "block";
+  } else {
+    myBotton.style.display = "none";
+  }
+}
+
+function topScroll() {
+  document.body.scrollTo = 0;
+  document.documentElement.scrollTop = 0;
+}

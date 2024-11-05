@@ -40,6 +40,7 @@ const Categories = () => {
           </div>
         </div>
       </div>
+      <hr />
     </section>
   );
 };

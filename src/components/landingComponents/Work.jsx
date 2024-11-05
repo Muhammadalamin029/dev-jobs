@@ -35,6 +35,7 @@ const Work = () => {
           </div>
         </div>
       </div>
+      <hr />
     </section>
   );
 };

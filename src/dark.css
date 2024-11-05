@@ -39,7 +39,8 @@ h1 {
   font-size: 2.5rem !important;
 }
 
-p {
+.sec p,
+header p {
   font-size: 1rem;
   font-weight: 700;
 }
@@ -85,7 +86,7 @@ p {
 }
 
 .categories-container {
-  height: 200px;
+  min-height: 200px;
   width: 300px;
   margin: 0 auto;
   flex-direction: column;
@@ -98,6 +99,10 @@ p {
   display: block;
   color: #939bf4;
   margin: 0 0 10px;
+}
+
+.categories-icon:hover {
+  color: #5964e0;
 }
 
 .steps {
@@ -114,4 +119,141 @@ p {
   font-size: 2.5rem;
   margin: 10px 0;
   color: #939bf4;
+}
+
+.step-icon:hover {
+  color: #5964e0;
+}
+
+/* Footer Section */
+
+.footer {
+  min-height: 200px;
+  background: #5964e0;
+  color: #ffffff;
+  flex-direction: column;
+}
+
+.myBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  border: none;
+  outline: none;
+  background: #939bf4;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.myBtn:hover {
+  background: #5964e0;
+}
+
+.sub-sec {
+  justify-content: space-between !important;
+  padding: 0 50px;
+  height: 25%;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.social a {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  h1 {
+    font-size: 3.5rem !important;
+  }
+
+  .sec p,
+  header p {
+    font-size: 1.5rem;
+  }
+
+  .sec-header {
+    font-size: 2.5rem;
+  }
+
+  .categories-container,
+  .steps {
+    font-size: 1.5rem;
+  }
+
+  .steps h3 {
+    font-size: 3rem;
+    margin-top: 20px;
+  }
+
+  .step-icon {
+    font-size: 4rem;
+  }
+
+  .footer {
+    font-size: 1.3rem;
+  }
+
+  .sub-sec {
+    padding: 0 200px;
+  }
+
+  .landing-btn {
+    font-size: 1.5rem;
+  }
+
+  .sub-sec a {
+    font-size: 3rem !important;
+    color: #ffffff;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.5rem !important;
+  }
+
+  .sec p,
+  header p {
+    font-size: 1.5rem;
+  }
+
+  .sub-sec {
+    padding: 0 300px;
+  }
+
+  .landing-btn {
+    font-size: 2rem;
+  }
+
+  .footer {
+    font-size: 1.5rem;
+  }
+
+  .sec-header {
+    font-size: 2.5rem;
+  }
+
+  .categories-container,
+  .steps {
+    font-size: 1.5rem;
+  }
+
+  .steps h3 {
+    font-size: 3rem;
+    margin-top: 20px;
+  }
+
+  .step-icon {
+    font-size: 4rem;
+  }
+
+  .sub-sec a {
+    font-size: 2rem !important;
+    color: #ffffff;
+  }
 }

@@ -4,6 +4,8 @@ import Hero from "../components/landingComponents/Hero";
 import "../dark.css";
 import Categories from "../components/landingComponents/Categories";
 import Work from "../components/landingComponents/Work";
+import CTA from "../components/landingComponents/CTA";
+import LandingFooter from "../components/landingComponents/LandingFooter";
 
 const Landing = () => {
   return (
@@ -46,7 +48,7 @@ const Landing = () => {
               </li>
               <li class="nav-item">
                 <NavLink className="nav-link" to="/add-job">
-                  <button className="btn">Get Started</button>
+                  Get Started
                 </NavLink>
               </li>
             </ul>
@@ -56,6 +58,8 @@ const Landing = () => {
       <Hero />
       <Categories />
       <Work />
+      <CTA />
+      <LandingFooter />
     </section>
   );
 };
