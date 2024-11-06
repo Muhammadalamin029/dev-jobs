@@ -13,6 +13,7 @@ import AddJob from "./pages/AddJob";
 import Landing from "./pages/Landing";
 import AuthContextProvider from "./context/AuthContextProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   const router = createBrowserRouter(
@@ -27,7 +28,10 @@ function App() {
             <Route path=":id" element={<Description />} />
           </Route>
         </Route>
-        <Route path="/welcome" element={<Landing />} />
+
+        <Route element={<PublicRoute />}>
+          <Route path="/welcome" element={<Landing />} />
+        </Route>
       </>
     )
   );
