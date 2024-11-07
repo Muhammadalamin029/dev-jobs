@@ -22,8 +22,6 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Layout />}>
             <Route path="" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signUp" element={<SignUp />} />
             <Route path="add-job" element={<AddJob />} />
             <Route path=":id" element={<Description />} />
           </Route>
@@ -31,6 +29,8 @@ function App() {
 
         <Route element={<PublicRoute />}>
           <Route path="/welcome" element={<Landing />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signUp" element={<SignUp />} />
         </Route>
       </>
     )

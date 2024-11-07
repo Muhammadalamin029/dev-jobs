@@ -14,10 +14,6 @@ body {
   font-family: "Kumbh Sans", sans-serif;
 }
 
-body.dark {
-  background: #121712;
-}
-
 h1 {
   font-size: 28px;
 }
@@ -123,6 +119,7 @@ nav {
 
 input.dark {
   background: #19202d;
+  color: #ffffff;
 }
 
 .search-input input::placeholder {
@@ -418,9 +415,12 @@ footer {
 .form-container {
   min-height: 80vh;
 }
+.auth-form-dark {
+  background: #19202d;
+  /* color: #ffffff; */
+}
 
 .form-control {
-  /* outline: #5964e0 2px solid; */
   background: #f4f6f8;
 }
 
@@ -429,6 +429,35 @@ footer {
   font-size: 2.5rem;
   font-weight: 900;
   margin-bottom: 15px;
+}
+
+.form-header-dark {
+  color: #ffffff;
+}
+
+.form-control-dark {
+  background: #121712;
+  border: none;
+  color: #ffffff;
+}
+
+.label-dark {
+  color: #6e8098 !important;
+}
+
+.form-select-dark {
+  background: #121712;
+  color: #ffffff;
+  border: none;
+}
+
+.label-dark::after {
+  background: transparent !important;
+}
+
+.form-control-dark:focus {
+  background: #121712;
+  color: #ffffff;
 }
 
 .form-50 {
@@ -456,6 +485,25 @@ footer {
 .form-section {
   text-align: left;
   margin: 20px 0;
+}
+
+.form-section-dark {
+  color: #ffffff;
+}
+
+.form-section-dark input {
+  background: #121712;
+  color: #ffffff;
+  border: none;
+}
+
+.form-section-dark input::placeholder {
+  color: #6e8098;
+}
+
+.form-section-dark input:focus {
+  background: #121712;
+  color: #ffffff;
 }
 
 .add {
@@ -539,6 +587,15 @@ footer {
     display: flex;
     background: #ffffff;
     z-index: 2 !important;
+  }
+
+  .mobile-search-dark {
+    background: #19202d;
+  }
+
+  .mobile-search-dark input {
+    background: #19202d;
+    color: #ffffff;
   }
 
   .mobile-filter {

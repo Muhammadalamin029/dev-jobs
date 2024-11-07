@@ -1,7 +1,6 @@
-body {
+/* body {
   background: #f0f2f5 !important;
-  color: #1a2e46 !important;
-}
+} */
 
 .nav {
   background: #5964e0;
@@ -10,7 +9,7 @@ body {
 .header {
   height: 80vh;
   flex-direction: column;
-  color: #000000;
+  /* color: #000000; */
   position: relative;
 }
 
@@ -39,10 +38,14 @@ h1 {
   font-size: 2.5rem !important;
 }
 
-.sec p,
-header p {
+.sec p {
   font-size: 1rem;
   font-weight: 700;
+  color: #1a2e46 !important;
+}
+
+header p {
+  color: #ffffff !important;
 }
 
 .nav-link {
@@ -52,6 +55,7 @@ header p {
 .header-content {
   z-index: 2;
   text-align: center;
+  color: #1a2e46 !important;
 }
 
 .landing-btn {
@@ -83,6 +87,7 @@ header p {
 
 .section-description {
   font-size: 1rem;
+  color: #1a2e46 !important;
 }
 
 .categories-container {
@@ -92,6 +97,7 @@ header p {
   flex-direction: column;
   font-weight: 900;
   font-size: 1.3rem;
+  color: #1a2e46 !important;
 }
 
 .categories-icon {
@@ -108,10 +114,12 @@ header p {
 .steps {
   font-size: 1.2rem;
   font-weight: 600;
+  color: #1a2e46 !important;
 }
 
 .steps h3 {
   font-size: 2rem;
+  color: #1a2e46 !important;
   font-weight: 700;
 }
 
@@ -154,7 +162,7 @@ header p {
 }
 
 .sec .row {
-  width: 100% !important;
+  margin: 0 !important;
 }
 
 .sub-sec {

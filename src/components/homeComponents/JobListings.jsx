@@ -8,7 +8,7 @@ import { JobContext } from "../../context/JobContextProvider";
 const JobListings = () => {
   const [getJobs, jobs, loading] = useGetData();
 
-  const { searchData } = useContext(JobContext);
+  const { searchData, dark } = useContext(JobContext);
 
   useEffect(() => {
     getJobs();
@@ -34,11 +34,16 @@ const JobListings = () => {
                       }}
                       className="img"
                     ></div>
-                    <div className="job-details">
+                    <div
+                      className={`job-details ${dark && "job-details-dark"}`}
+                    >
                       <p>
                         {job.postedAt} . {job.contract}
                       </p>
-                      <Link to={job.id} className="job-role">
+                      <Link
+                        to={job.id}
+                        className={`job-role ${dark && "job-role-dark"}`}
+                      >
                         {job.position}
                       </Link>
                       <p className="company-name">{job.company}</p>

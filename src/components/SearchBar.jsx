@@ -16,87 +16,87 @@ const SearchBar = () => {
     searchLocation,
   ] = useSearchJobs();
 
-  const { filter, setFilter } = useContext(JobContext);
+  const { filter, setFilter, dark } = useContext(JobContext);
 
   return (
-    <>
-      <div className="search-container">
-        <div className="search-bar">
-          <div className="search">
-            <div className="search-input">
-              <FaSearch className="search-icon" />
-              <input
-                value={searchInput}
-                onChange={handleSearchInput}
-                type="text"
-                placeholder="Filter by title, company, expertise..."
-              />
-            </div>
-          </div>
-          <div className="search">
-            <div className="search-input">
-              <FaLocationDot className="search-icon" />
-              <input
-                value={searchLocation}
-                onChange={handleSearchLocation}
-                type="text"
-                placeholder="Filter by location"
-              />
-            </div>
-          </div>
-          <div className="filter">
+    <div className="search-container">
+      <div className={dark ? "search-bar-dark search-bar" : "search-bar"}>
+        <div className="search">
+          <div className="search-input">
+            <FaSearch className="search-icon" />
             <input
-              className="check"
-              onChange={handleFullTime}
-              type="checkbox"
-              checked={fullTime}
-              id="check"
-            />
-            <label
-              htmlFor="check"
-              className="check-label one"
-              data-text="Full time"
-            >
-              Full Time Only
-            </label>
-            <label
-              htmlFor="check"
-              className="check-label two"
-              data-text="Full time"
-            >
-              Full Time
-            </label>
-            <Link onClick={search} className="button search-btn">
-              Search
-            </Link>
-          </div>
-        </div>
-        <div className="mobile-search-bar">
-          <div className="mobile-filter">
-            <input
+              className={dark && "dark"}
               value={searchInput}
               onChange={handleSearchInput}
-              className="filter-input"
               type="text"
-              placeholder="Filter by title..."
+              placeholder="Filter by title, company, expertise..."
             />
-            <Link
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              <FaFilter
-                onClick={() => setFilter(!filter)}
-                className="filter-icon"
-              />
-            </Link>
-            <Link onClick={search} className="button filter-btn">
-              <FaSearch />
-            </Link>
           </div>
         </div>
+        <div className="search">
+          <div className="search-input">
+            <FaLocationDot className="search-icon" />
+            <input
+              className={dark && "dark"}
+              value={searchLocation}
+              onChange={handleSearchLocation}
+              type="text"
+              placeholder="Filter by location"
+            />
+          </div>
+        </div>
+        <div className="filter">
+          <input
+            className="check"
+            onChange={handleFullTime}
+            type="checkbox"
+            checked={fullTime}
+            id="check"
+          />
+          <label
+            htmlFor="check"
+            className={`check-label one ${dark && "check-label-dark"}`}
+            data-text="Full time"
+          >
+            Full Time Only
+          </label>
+          <label
+            htmlFor="check"
+            className={`check-label two ${dark && "check-label-dark"}`}
+            data-text="Full time"
+          >
+            Full Time
+          </label>
+          <Link onClick={search} className="button search-btn">
+            Search
+          </Link>
+        </div>
       </div>
-    </>
+      <div className={`mobile-search-bar ${dark && "mobile-search-dark"}`}>
+        <div className="mobile-filter">
+          <input
+            value={searchInput}
+            onChange={handleSearchInput}
+            className="filter-input"
+            type="text"
+            placeholder="Filter by title..."
+          />
+          <Link
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <FaFilter
+              onClick={() => setFilter(!filter)}
+              className="filter-icon"
+            />
+          </Link>
+          <Link onClick={search} className="button filter-btn">
+            <FaSearch />
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 

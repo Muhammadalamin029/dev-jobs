@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useFormData from "../hooks/useFormData";
 import useFormSubmit from "../hooks/useFormSubmit";
+import { JobContext } from "../context/JobContextProvider";
 
 const AddJob = () => {
   const [roles, setRoles] = useState([]);
   const [res, setRes] = useState([]);
   const [register, unregister, handleSubmit, reset, errors] = useFormData();
   const [addJob, publishing] = useFormSubmit();
+
+  const { dark } = useContext(JobContext);
 
   const handleRemove = (index) => {
     unregister(`role.items.${index}`);
@@ -27,21 +30,25 @@ const AddJob = () => {
   };
 
   return (
-    <section className="auth-form my-5">
-      <div className="form-container ">
+    <section className={`auth-form my-5 ${dark && "auth-form-dark"}`}>
+      <div className="form-container">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="form-header">Add Job</h1>
+          <h1 className={`form-header ${dark && "form-header-dark"}`}>
+            Add Job
+          </h1>
           <div className="row">
             <div className="col-lg-6 col-sm-12">
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${dark && "form-control-dark"}`}
                   id="companyName"
                   placeholder="Company Name"
                   {...register("company", { required: "Enter company name!!" })}
                 />
-                <label htmlFor="companyName">Company Name</label>
+                <label className={dark && "label-dark"} htmlFor="companyName">
+                  Company Name
+                </label>
                 {errors.company && (
                   <p className="error">{errors.company.message}</p>
                 )}
@@ -51,14 +58,19 @@ const AddJob = () => {
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${dark && "form-control-dark"}`}
                   id="companyLocation"
                   placeholder="Company Location"
                   {...register("location", {
                     required: "Enter location!!",
                   })}
                 />
-                <label htmlFor="companyLocation">Company Location</label>
+                <label
+                  className={dark && "label-dark"}
+                  htmlFor="companyLocation"
+                >
+                  Company Location
+                </label>
                 {errors.location && (
                   <p className="error">{errors.location.message}</p>
                 )}
@@ -70,14 +82,16 @@ const AddJob = () => {
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${dark && "form-control-dark"}`}
                   id="websiteLink"
                   placeholder="Website Link"
                   {...register("website", {
                     required: "Enter website link!!",
                   })}
                 />
-                <label htmlFor="websiteLink">Website Link</label>
+                <label className={dark && "label-dark"} htmlFor="websiteLink">
+                  Website Link
+                </label>
                 {errors.website && (
                   <p className="error">{errors.website.message}</p>
                 )}
@@ -87,14 +101,19 @@ const AddJob = () => {
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${dark && "form-control-dark"}`}
                   id="applicationLink"
                   placeholder="Application Link"
                   {...register("apply", {
                     required: "Enter application link!!",
                   })}
                 />
-                <label htmlFor="applicationLink">Application Link</label>
+                <label
+                  className={dark && "label-dark"}
+                  htmlFor="applicationLink"
+                >
+                  Application Link
+                </label>
                 {errors.apply && (
                   <p className="error">{errors.apply.message}</p>
                 )}
@@ -106,14 +125,16 @@ const AddJob = () => {
               <div className="form-floating mb-3">
                 <input
                   type="text"
-                  className="form-control"
+                  className={`form-control ${dark && "form-control-dark"}`}
                   id="jobPosition"
                   placeholder="Job Position"
                   {...register("position", {
                     required: "Enter job position!!",
                   })}
                 />
-                <label htmlFor="jobPosition">Job Position</label>
+                <label className={dark && "label-dark"} htmlFor="jobPosition">
+                  Job Position
+                </label>
                 {errors.position && (
                   <p className="error">{errors.position.message}</p>
                 )}
@@ -122,7 +143,7 @@ const AddJob = () => {
             <div className="col-lg-6 col-sm-12">
               <div className="form-floating mb-3">
                 <select
-                  className="form-select"
+                  className={`form-select ${dark && "form-select-dark"}`}
                   aria-label="Floating select example"
                   id="jobContract"
                   {...register("contract", {
@@ -135,7 +156,9 @@ const AddJob = () => {
                   <option value="Hybrid">Hybrid</option>
                   <option value="Part Time">Part time</option>
                 </select>
-                <label htmlFor="jobContract">Choose job contract</label>
+                <label className={dark && "label-dark"} htmlFor="jobContract">
+                  Choose job contract
+                </label>
                 {errors.contract && (
                   <p className="error">{errors.contract.message}</p>
                 )}
@@ -145,31 +168,33 @@ const AddJob = () => {
           <div className="form-floating mb-3">
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${dark && "form-control-dark"}`}
               id="jobDescription"
               placeholder="Job Description"
               {...register("description", {
                 required: "Enter job description!!",
               })}
             />
-            <label htmlFor="jobDescription">Job Description</label>
+            <label className={dark && "label-dark"} htmlFor="jobDescription">
+              Job Description
+            </label>
             {errors.description && (
               <p className="error">{errors.description.message}</p>
             )}
           </div>
-          <div className="form-section">
+          <div className={`form-section ${dark && "form-section-dark"}`}>
             <h2>Job requirements</h2>
             <div className="form-floating mb-3">
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${dark && "form-control-dark"}`}
                 id="floatingReq"
                 placeholder=""
                 {...register("requirements.content", {
                   required: "Enter requirements!!",
                 })}
               />
-              <label htmlFor="floatingReq">
+              <label className={dark && "label-dark"} htmlFor="floatingReq">
                 Describe the requirements.......
               </label>
               {errors.requirements && (
@@ -203,19 +228,19 @@ const AddJob = () => {
               Add Skill
             </Link>
           </div>
-          <div className="form-section">
+          <div className={`form-section ${dark && "form-section-dark"}`}>
             <h2>Job Responsibilities</h2>
             <div className="form-floating mb-3">
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${dark && "form-control-dark"}`}
                 id="floatingRole"
                 placeholder="Password"
                 {...register("role.content", {
                   required: "Enter role description!!",
                 })}
               />
-              <label htmlFor="floatingRole">
+              <label className={dark && "label-dark"} htmlFor="floatingRole">
                 Describe key responsibilities.......
               </label>
               {errors.role && (

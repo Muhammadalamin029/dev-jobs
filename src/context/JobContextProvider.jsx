@@ -12,6 +12,12 @@ const JobContextProvider = ({ children }) => {
     type: false,
   });
 
+  if (dark) {
+    document.querySelector("body").style.backgroundColor = "#121712";
+  } else {
+    document.querySelector("body").style.backgroundColor = "#f4f6f8";
+  }
+
   return (
     <JobContext.Provider
       value={{
