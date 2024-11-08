@@ -39,7 +39,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTo == 0 || document.documentElement.scrollTop == 0) {
+  if (document.body.scrollTo > 30 || document.documentElement.scrollTop > 30) {
     myBotton.style.display = "block";
   } else {
     myBotton.style.display = "none";

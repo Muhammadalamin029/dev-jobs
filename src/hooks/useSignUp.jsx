@@ -6,10 +6,11 @@ import {
 import { auth, db } from "../config/firebase";
 import toast from "react-hot-toast";
 import { doc, setDoc } from "firebase/firestore";
-import { useState } from "react";
+import { useContext } from "react";
+import { JobContext } from "../context/JobContextProvider";
 
 const useSignUp = () => {
-  const [logout, setLogout] = useState(false);
+  const { setDark } = useContext(JobContext);
 
   const signUp = async (email, password, fullname) => {
     try {
@@ -52,14 +53,10 @@ const useSignUp = () => {
 
   const logOut = async () => {
     signOut(auth);
+    setDark(false);
   };
 
-  const handleModal = () => {
-    setLogout((logout) => !logout);
-    // alert(logout);
-  };
-
-  return { signUp, login, logout, handleModal, logOut };
+  return { signUp, login, logOut };
 };
 
 export default useSignUp;

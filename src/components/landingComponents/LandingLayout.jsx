@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop";
 
 const LandingLayout = () => {
   return (
@@ -45,6 +46,7 @@ const LandingLayout = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop />
       <Outlet />
     </>
   );
