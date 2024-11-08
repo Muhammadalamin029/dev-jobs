@@ -610,6 +610,12 @@ footer {
   background: #19202d;
 }
 
+.show {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
 @media (max-width: 768px) {
   footer {
     padding: 24px;

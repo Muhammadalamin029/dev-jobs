@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import useSignUp from "../../hooks/useSignUp";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const { signUp } = useSignUp();
 
@@ -49,13 +51,19 @@ const SignUp = () => {
           </div>
           <div className="form-floating mb-3">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="form-control"
               id="floatingInput"
               placeholder="name@example.com"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <Link
+              className="show"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </Link>
             <label htmlFor="floatingInput">Password</label>
           </div>
           <button className="button auth-btn">Sign Up</button>
