@@ -529,24 +529,85 @@ footer {
   color: red;
 }
 
+.detail-dark .details-header {
+  background: #19202d !important;
+  color: #ffffff;
+}
+
+.detail-dark .content {
+  background: #19202d !important;
+  color: #ffffff;
+}
+
+.detail-dark .section-header {
+  color: #ffffff;
+}
+
+.footer-dark {
+  background: #121712;
+  /* color: #ffffff; */
+}
+
+.footer-dark h2 {
+  color: #ffffff !important;
+}
+
 @media (max-width: 768px) {
   footer {
     padding: 24px;
   }
 
-  .filter-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-  }
-
   .overlay {
+    position: fixed;
     top: 0;
     left: 0;
     min-height: 100vh;
     width: 100vw;
-    background: #19202d65;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .mod {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .mod-dark .filter-modal {
+    background: #19202d;
+  }
+
+  .filter-modal {
+    position: fixed;
+    top: 230px;
+    left: 2.5%;
+    right: 2.5%;
+    z-index: 3;
+    background: #ffffff;
+    width: 95%;
+    border-radius: 10px;
+  }
+
+  .location-mobile {
+    width: 100%;
+    height: 80px;
+    border-bottom: #121712 1px solid;
+    padding: 0 20px;
+  }
+
+  .full-time-mobile {
+    width: 100%;
+    height: 80px;
+    padding: 0 20px;
+  }
+
+  .btn-mobile {
+    width: 100%;
+    padding: 0 20px 15px;
+  }
+
+  .btn-mobile a {
+    width: 100%;
   }
 
   .form-50 {

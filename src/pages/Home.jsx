@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import SearchBar from "../components/SearchBar";
 import JobListings from "../components/homeComponents/JobListings";
 import ReadMoreBtn from "../components/homeComponents/ReadMoreBtn";
 import { JobContext } from "../context/JobContextProvider";

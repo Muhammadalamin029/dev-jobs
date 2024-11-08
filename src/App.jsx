@@ -14,6 +14,7 @@ import Landing from "./pages/Landing";
 import AuthContextProvider from "./context/AuthContextProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
+import LandingLayout from "./components/landingComponents/LandingLayout";
 
 function App() {
   const router = createBrowserRouter(
@@ -28,9 +29,11 @@ function App() {
         </Route>
 
         <Route element={<PublicRoute />}>
-          <Route path="/welcome" element={<Landing />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signUp" element={<SignUp />} />
+          <Route element={<LandingLayout />}>
+            <Route path="/welcome" element={<Landing />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signUp" element={<SignUp />} />
+          </Route>
         </Route>
       </>
     )

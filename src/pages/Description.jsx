@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/descriptionComponents/Footer";
 import useGetDes from "../hooks/useGetDes";
 import Spinner from "../components/Spinner";
+import { JobContext } from "../context/JobContextProvider";
 
 const Description = () => {
   const { id } = useParams();
   const [getJob, job, loading] = useGetDes(id);
+  const { dark } = useContext(JobContext);
   useEffect(() => {
     getJob();
   }, []);
   return (
     <>
       <section className="section">
-        <div className="details">
+        <div className={`details ${dark && "detail-dark"}`}>
           <div className="search-container">
             {loading ? (
               <Spinner />
