@@ -12,6 +12,7 @@ const JobContextProvider = ({ children }) => {
     }
   });
   const [filter, setFilter] = useState(false);
+  const [modal, setModal] = useState(false);
   const [searchData, setSearch] = useState(false);
   const [searchValue, setSearchValue] = useState({
     input: "",
@@ -23,16 +24,6 @@ const JobContextProvider = ({ children }) => {
     window.localStorage.setItem("theme", JSON.stringify(dark));
   }, [dark]);
 
-  // useEffect(() => {
-  //   const theme = JSON.parse(window.localStorage.getItem("theme"));
-
-  //   if (theme === true) {
-  //     setDark(true);
-  //   } else {
-  //     setDark(false);
-  //   }
-  // }, [dark]);
-
   if (dark) {
     document.querySelector("body").style.backgroundColor = "#121712";
   } else {
@@ -42,6 +33,8 @@ const JobContextProvider = ({ children }) => {
   return (
     <JobContext.Provider
       value={{
+        modal,
+        setModal,
         dark,
         setDark,
         filter,

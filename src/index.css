@@ -36,7 +36,7 @@ h3 {
 nav {
   position: relative;
   background: #5964e0;
-  height: 121px;
+  min-height: 121px;
   border-bottom-left-radius: 100px;
   border-bottom: solid 41px #5964e0;
   color: #ffffff;
@@ -568,6 +568,53 @@ footer {
 
   .detail-dark .details-header.sm h3 {
     color: #ffffff !important;
+  }
+
+  .nav {
+    flex-direction: column;
+    margin: 20px 0 !important;
+    margin-block-start: 0 !important;
+    justify-content: left !important;
+  }
+
+  .nav .navbar-nav {
+    flex-direction: column;
+    margin: 20px 0 !important;
+    margin-block-start: 0 !important;
+    justify-content: left !important;
+  }
+
+  .nav .collapse {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: left !important; */
+  }
+
+  .filter-modal section h2 {
+    color: #121712;
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+
+  .filter-modal section {
+    text-align: center;
+    width: 70%;
+    margin: 30px auto;
+  }
+
+  .filter-modal section button {
+    width: 90px;
+    height: 30px;
+    border: none;
+    background: red;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 20px;
+  }
+
+  .filter-modal section button.g {
+    background: green !important;
   }
 
   .overlay {
