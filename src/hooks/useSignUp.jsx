@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import { doc, setDoc } from "firebase/firestore";
 import { useContext } from "react";
 import { JobContext } from "../context/JobContextProvider";
+import { FirebaseError } from "firebase/app";
+import { generateFirebaseAuthErrorMessage } from "./error";
 
 const useSignUp = () => {
   const { setDark } = useContext(JobContext);
@@ -19,6 +21,11 @@ const useSignUp = () => {
         {
           loading: "Creating account",
           success: "User succesfully created",
+          error: (error) => {
+            if (error instanceof FirebaseError) {
+              return generateFirebaseAuthErrorMessage(error.code);
+            }
+          },
         }
       );
 
@@ -41,13 +48,18 @@ const useSignUp = () => {
       const user = await toast.promise(
         signInWithEmailAndPassword(auth, email, password),
         {
-          loading: "Logging in",
-          success: "Logged in succcessfully",
+          loading: "Logging in....",
+          success: "Successully logged in!!",
+          error: (error) => {
+            if (error instanceof FirebaseError) {
+              return generateFirebaseAuthErrorMessage(error.code);
+            }
+          },
         }
       );
       console.log(user);
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
     }
   };
 
