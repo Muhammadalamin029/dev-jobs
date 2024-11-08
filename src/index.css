@@ -557,6 +557,19 @@ footer {
     padding: 24px;
   }
 
+  .detail-dark .sm-content {
+    background-color: #19202d;
+    color: #ffffff;
+  }
+
+  .detail-dark .details-header.sm {
+    background: none !important;
+  }
+
+  .detail-dark .details-header.sm h3 {
+    color: #ffffff !important;
+  }
+
   .overlay {
     position: fixed;
     top: 0;
